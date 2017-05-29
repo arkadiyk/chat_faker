@@ -60,7 +60,7 @@ end
 
 desc "Generate Fake Chat as CSV files"
 task :as_csv do
-  CSV.open("people.csv", "w") do |csv|
+  CSV.open("data/people.csv", "w") do |csv|
     csv << PPL.first.keys
     PPL.each do |h|
       csv << h.values
@@ -68,7 +68,7 @@ task :as_csv do
   end
 
   all_conv = chat_participants.map{|chat_p| conv(chat_p) }.flatten(1)
-  CSV.open("chats.csv", "w") do |csv|
+  CSV.open("data/chats.csv", "w") do |csv|
     cnv = all_conv
     csv << cnv.first.keys
     cnv.each do |c|
