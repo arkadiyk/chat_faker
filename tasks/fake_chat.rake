@@ -13,12 +13,13 @@ def friends
   ppl = PPL.clone
   friends = []
   while ppl.size > 1
-    friends << ppl.pop(rand(2..6))
+    friends << ppl.pop(rand(2..6)) # number of friends in a circle
   end
   friends[0] += ppl  # if ppl.size > 0
   friends
 end
 
+# splits a friend circle into pairs
 def chat_participants 
   friends.map do |friend|
     friend.combination(2).to_a
@@ -27,7 +28,7 @@ end
 
 def conv(chat_p)
   conv = []
-  rand(5..100).times do
+  rand(5..100).times do  # number of messages between 2 friends.
     from_to = chat_p.shuffle
     conv << {
       "from" => from_to[0],
